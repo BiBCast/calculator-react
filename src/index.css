@@ -25,13 +25,27 @@ body {
 }
 
 .cellphone__navigation {
+  --navigation-height: 15%;
   border: 1px solid red;
-  height: 15%;
+  height: var(--navigation-height);
   width: 100%;
   transform: scale(0.8);
   border-radius: 5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .navigation__element {
+  flex-grow: 1;
+  text-align: center;
+}
+.navigation__hover {
+  position: absolute;
+  background: red;
+  height: 50%;
+  width: calc(100% / var(--options));
+  left: calc(100% / var(--options) * var(--selected-option));
 }
 
 .cellphone__keypad {
