@@ -7,6 +7,11 @@ html,
 body {
   box-sizing: border-box;
 }
+:root {
+  --main-color: white;
+  --hover-color: black;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -22,6 +27,9 @@ body {
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   border-radius: 5rem;
   border: 8px solid gray;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .cellphone__navigation {
@@ -44,13 +52,15 @@ body {
   text-align: center;
   background: none;
   border: none;
-  color: white;
+  color: var(--main-color);
   font-size: large;
   text-transform: capitalize;
   z-index: 1;
+  height: 100%;
+  cursor: pointer;
 }
 .element_focus {
-  color: black;
+  color: var(--hover-color);
   transition: all 0.2s ease-in-out;
 }
 .navigation__hover {
@@ -62,25 +72,34 @@ body {
   width: calc(100% / var(--options));
   left: calc(100% / var(--options) * var(--selected-option));
 }
+.cellphone__display {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  border: 1px solid purple;
+  height: 10%;
+  margin-bottom: 10%;
+}
+.display__text {
+  color: var(--main-color);
+  margin-bottom: 3%;
+}
 
 .cellphone__keypad {
   border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
+
   height: 50%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.cellphone__display {
-  border: 1px solid purple;
-  height: 10%;
-  margin-bottom: 10%;
 }
 
 .keypad__button {
+  width: 25%;
+  height: 20%;
+
+  outline: 1px solid orange;
+}
+.button_large {
+  aspect-ratio: initial;
   flex-grow: 1;
-  aspect-ratio: 1 / 1;
-  width: calc(var(--width) / 6);
-  border: 1px solid orange;
 }
