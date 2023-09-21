@@ -13,7 +13,7 @@ function App() {
     <div className="container">
       <div className="container__cellphone">
         <Navigation
-          options={["mario", "dfgdfgg"]}
+          options={["mario", "dfgdfgg", "ciao"]}
           selectedIndex={selectedOption}
           onclick={handleChange}
         />

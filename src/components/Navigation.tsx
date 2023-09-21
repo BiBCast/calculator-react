@@ -18,7 +18,10 @@ export function Navigation({ options, selectedIndex, onclick }: Props) {
               onClick={() => onclick(index)}
               type="button"
               key={index}
-              className="navigation__element"
+              className={
+                "navigation__element " +
+                (index === selectedIndex ? "element_focus" : "")
+              }
             >
               {opt}
             </button>

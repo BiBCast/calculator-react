@@ -26,25 +26,39 @@ body {
 
 .cellphone__navigation {
   --navigation-height: 15%;
-  border: 1px solid red;
+  --navigation-border: 5rem;
+  border: 0.3px solid red;
   height: var(--navigation-height);
   width: 100%;
   transform: scale(0.8);
-  border-radius: 5rem;
+  border-radius: var(--navigation-border);
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .navigation__element {
-  flex-grow: 1;
+  flex: 1;
   width: calc(100% / var(--options));
   text-align: center;
+  background: none;
+  border: none;
+  color: white;
+  font-size: large;
+  text-transform: capitalize;
+  z-index: 1;
+}
+.element_focus {
+  color: black;
+  transition: all 0.2s ease-in-out;
 }
 .navigation__hover {
   position: absolute;
   background: red;
-  height: 50%;
+  height: 100%;
+  border-radius: var(--navigation-border);
+  transition: all 0.2s ease-in-out;
   width: calc(100% / var(--options));
   left: calc(100% / var(--options) * var(--selected-option));
 }
