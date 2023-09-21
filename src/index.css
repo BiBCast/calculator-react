@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +7,7 @@
 html,
 body {
   box-sizing: border-box;
+  font-family: "Mooli", sans-serif;
 }
 :root {
   --main-color: white;
@@ -17,16 +19,17 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background: rgb(30, 30, 30);
 }
 .container__cellphone {
   --width: 30rem;
 
   width: var(--width);
   aspect-ratio: 18 / 30;
-  background: rgb(0, 0, 0, 0.8);
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background: rgb(20, 20, 20);
+  box-shadow: 0 25px 50px -12px rgb(0, 0, 0, 0.5);
   border-radius: 5rem;
-  border: 8px solid gray;
+  border: 8px solid rgb(50, 50, 50);
 
   display: flex;
   flex-direction: column;
@@ -78,28 +81,56 @@ body {
   align-items: end;
   border: 1px solid purple;
   height: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
-.display__text {
+.display__input {
   color: var(--main-color);
   margin-bottom: 3%;
+  font-size: xx-large;
+}
+
+.cellphone__output {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.cellphone__output > span {
+  font-size: x-large;
+  color: var(--main-color);
 }
 
 .cellphone__keypad {
   border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
-
   height: 50%;
 }
 
 .keypad__button {
   width: 25%;
   height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* outline: 1px solid orange; */
+}
 
+.keypad__button > button {
+  color: red;
+  font-size: xx-large;
+  width: 90%;
+  height: 90%;
+  background: none;
+  border: none;
   outline: 1px solid orange;
 }
+
 .button_large {
   aspect-ratio: initial;
   flex-grow: 1;
+}
+.button_large > button {
+  width: 95%;
 }
