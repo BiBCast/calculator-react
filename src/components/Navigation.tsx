@@ -1,31 +1,33 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 
 type Props = {
   options: string[];
   selectedIndex: number;
-  onclick: () => void;
+  onclick: (index: number) => void;
 };
 
 export function Navigation({ options, selectedIndex, onclick }: Props) {
   const styleOptions = { "--options": options.length } as CSSProperties;
-  {
-    console.log(styleOptions);
-  }
+
   return (
     <>
-      <div className="cellphone__navigation">
+      <div className="cellphone__navigation" style={styleOptions}>
         {options.map((opt, index) => {
           return (
-            <div key={index} className="navigation__element">
+            <button
+              onClick={() => onclick(index)}
+              type="button"
+              key={index}
+              className="navigation__element"
+            >
               {opt}
-            </div>
+            </button>
           );
         })}
         <div
           className="navigation__hover"
           style={
             {
-              ...styleOptions,
               "--selected-option": selectedIndex,
             } as CSSProperties
           }

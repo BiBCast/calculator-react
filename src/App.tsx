@@ -4,19 +4,18 @@ import { KeyPad } from "./components/Keypad";
 import { Navigation } from "./components/Navigation";
 import "./index.css";
 function App() {
-  const [selectedOption, setSelectedOptions] = useState<number>(2);
-  {
-    console.log(selectedOption);
+  const [selectedOption, setSelectedOptions] = useState<number>(0);
+
+  function handleChange(index: number) {
+    setSelectedOptions(index);
   }
   return (
     <div className="container">
       <div className="container__cellphone">
         <Navigation
-          options={["mario", "gigi", "pè"]}
+          options={["mario", "dfgdfgg"]}
           selectedIndex={selectedOption}
-          onclick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          onclick={handleChange}
         />
         <Display />
         <KeyPad />

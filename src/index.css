@@ -38,6 +38,7 @@ body {
 }
 .navigation__element {
   flex-grow: 1;
+  width: calc(100% / var(--options));
   text-align: center;
 }
 .navigation__hover {
