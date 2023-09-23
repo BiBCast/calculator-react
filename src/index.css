@@ -119,7 +119,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: end;
-  font-size: xx-large;
+  font-size: 3em;
 
   /* color: var(--main-color);
   margin-bottom: 3%;
