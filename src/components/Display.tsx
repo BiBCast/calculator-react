@@ -1,6 +1,5 @@
 import { MouseEvent } from "react";
 import { History } from "../App";
-import back_arrow from "../image/flip-backward.svg";
 
 export function Display({
   input,

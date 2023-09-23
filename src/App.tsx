@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, MouseEvent, useState } from "react";
+import { MouseEvent, useState } from "react";
 import { Display } from "./components/Display";
 import { KeyPad } from "./components/Keypad";
 import { Navigation } from "./components/Navigation";
@@ -38,9 +38,9 @@ function App() {
         if (!regex_inverse.test(input)) {
           break;
         }
-        let match_value = input.match(regex_inverse)[0];
+        let match_value = input.match(regex_inverse) as any[0];
         if (regex_no_check.test(input)) {
-          match_value = input.match(regex_no_check)[0];
+          match_value = input.match(regex_no_check) as any[0];
           match_value = "-" + match_value.slice(1);
         } else {
           match_value = "-" + match_value;
@@ -63,7 +63,7 @@ function App() {
         if (regex_float_no_check.test(input)) {
           break;
         }
-        let match_float_value = input.match(regex_float)[0];
+        let match_float_value = input.match(regex_float) as any[0];
 
         match_float_value = "0." + match_float_value;
 
@@ -79,7 +79,7 @@ function App() {
         setInput((input) => input + content);
     }
   }
-  function handleHomeButton(e: MouseEvent<HTMLButtonElement>) {
+  function handleHomeButton() {
     setInput("");
     setOutput("");
     setHistory([]);
@@ -88,7 +88,7 @@ function App() {
   function handleBackArrow() {
     setInput((input) => input.slice(0, -1));
   }
-  function handlePopup(e: MouseEvent<HTMLDivElement>) {
+  function handlePopup() {
     /* assumed exist , cheched hiding the popup */
     if (history.length < 0) return;
     const desc_history = history[history.length - 1];
