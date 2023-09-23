@@ -20,6 +20,15 @@ function App() {
   function handleKeypad(e: MouseEvent<HTMLButtonElement>) {
     const content = e.currentTarget.innerHTML;
     switch (content) {
+      case "=":
+        try {
+          setOutput(input !== "" ? eval(input) : output);
+          setHistory((history) => {
+            return [...history, { operations: input, result: output }];
+          });
+        } catch (err) {}
+        setInput("");
+        break;
       case "AC":
         setInput("");
         break;
@@ -44,15 +53,7 @@ function App() {
         );
         setInput(prefix + match_value);
         break;
-      case "=":
-        try {
-          setOutput(input !== "" ? eval(input) : output);
-          setHistory((history) => {
-            return [...history, { operations: input, result: output }];
-          });
-        } catch (err) {}
-        setInput("");
-        break;
+
       case "%":
         const regex_float = /\d*$/g;
         const regex_float_no_check = /\.+\d*$/g;
@@ -63,17 +64,16 @@ function App() {
           break;
         }
         let match_float_value = input.match(regex_float)[0];
+
         match_float_value = "0." + match_float_value;
 
         let prefix_float = input.slice(
           0,
           input.length >= match_float_value.length
             ? input.length - match_float_value.length
-            : match_float_value.length - input.length
+            : 0
         );
-
         setInput(prefix_float + match_float_value);
-
         break;
       default:
         setInput((input) => input + content);
@@ -94,7 +94,6 @@ function App() {
     const desc_history = history[history.length - 1];
     setInput(desc_history.operations);
     setOutput(desc_history.result);
-    console.log(history);
     setHistory(history.slice(0, -1));
   }
   return (
