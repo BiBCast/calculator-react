@@ -19,35 +19,25 @@ function App() {
         setInput("");
         break;
       case "+/-":
-        const regex_inverse = /[-+]?\d+[\.]?\d*$/g;
-        const regex_no_check = /[-+]{2,}?\d+[\.]?\d*$/g;
+        const regex_inverse = /\d+[\.]?\d*$/g;
+        const regex_no_check = /[-+]\d+[\.]?\d*$/g;
         if (!regex_inverse.test(input)) {
           break;
         }
         let match_value = input.match(regex_inverse)[0];
-
-        if (regex_no_check.test("-" + input)) {
-          break;
+        if (regex_no_check.test(input)) {
+          match_value = input.match(regex_no_check)[0];
+          match_value = "-" + match_value.slice(1);
+        } else {
+          match_value = "-" + match_value;
         }
-        match_value = "-" + match_value;
-
         let prefix = input.slice(
           0,
-          input.length + 1 - match_value.length <= 0
+          input.length - match_value.length <= 0
             ? 0
-            : input.length + 1 - match_value.length
+            : input.length - match_value.length
         );
-
         setInput(prefix + match_value);
-
-        /* const regex_2 = /\d\.\d+$/g;
-        const no_match_2 = /-\d\.\d+$/g;
-        let regex_value_2 = input.match(regex_2);
-        if (regex_value_2 !== null || !no_match_2.test(input)) {
-          let regex_string = regex_value_2[0];
-          let start_value = input.slice(0, input.length - regex_string.length);
-          setInput(start_value + "-" + regex_string);
-        } */
         break;
       case "=":
         try {
@@ -56,6 +46,26 @@ function App() {
         setInput("");
         break;
       case "%":
+        const regex_float = /\d*$/g;
+        const regex_float_no_check = /\.+\d*$/g;
+        if (!regex_float.test(input)) {
+          break;
+        }
+        if (regex_float_no_check.test(input)) {
+          break;
+        }
+        let match_float_value = input.match(regex_float)[0];
+        match_float_value = "0." + match_float_value;
+
+        let prefix_float = input.slice(
+          0,
+          input.length >= match_float_value.length
+            ? input.length - match_float_value.length
+            : match_float_value.length - input.length
+        );
+
+        setInput(prefix_float + match_float_value);
+
         /* const regex = /\d+$/g;
         const no_match = /-\d\.\d+$/g;
         let regex_value = input.match(regex);
@@ -100,6 +110,3 @@ function App() {
 }
 
 export default App;
-function abs(arg0: number): number | undefined {
-  throw new Error("Function not implemented.");
-}
