@@ -38,9 +38,9 @@ body {
 .cellphone__navigation {
   --navigation-height: 15%;
   --navigation-border: 5rem;
-  border: 0.3px solid red;
   height: var(--navigation-height);
   width: 100%;
+  background: #343a40;
   transform: scale(0.8);
   border-radius: var(--navigation-border);
   position: relative;
@@ -68,7 +68,7 @@ body {
 }
 .navigation__hover {
   position: absolute;
-  background: red;
+  background: white;
   height: 100%;
   border-radius: var(--navigation-border);
   transition: all 0.2s ease-in-out;
@@ -76,10 +76,11 @@ body {
   left: calc(100% / var(--options) * var(--selected-option));
 }
 .cellphone__display {
-  border: 1px solid purple;
   height: 20%;
   display: flex;
   flex-direction: column;
+  padding-inline: 8%;
+  margin-bottom: 3%;
 }
 
 .display__output {
@@ -87,15 +88,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  border: 1px solid orange;
   align-items: end;
   gap: 10%;
   font-size: xx-large;
 }
 .output__history {
-  background: orange;
+  background: white;
   margin-right: 1%;
-  border-radius: 15px;
+  border-radius: 15em;
+  padding-inline: 1rem;
   height: 40%;
   display: flex;
   align-items: center;
@@ -117,7 +118,6 @@ body {
   aspect-ratio: 2;
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
   align-items: end;
   font-size: xx-large;
 
@@ -130,14 +130,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding-left: 5%;
+  padding-left: 0.5%;
   scale: 1.3;
 }
 .go_back_arrow svg {
   height: 1em;
   width: 100%;
-  background: red;
-  fill: red;
+  background: transparent;
+  fill: transparent;
 }
 .go_back_arrow path {
   stroke: var(--main-color);
@@ -149,7 +149,6 @@ body {
   font-size: xx-large; */
 }
 .cellphone__keypad {
-  border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   height: 50%;
@@ -165,21 +164,31 @@ body {
 }
 
 .keypad__button > button {
-  color: red;
+  color: var(--main-color);
+  border-radius: 80%;
   font-size: xx-large;
-  width: 90%;
+  font-weight: 500;
+  aspect-ratio: 1;
   height: 90%;
-  background: none;
+  background: #212529;
   border: none;
-  outline: 1px solid orange;
 }
-
+.color_yellow {
+  background: orange !important;
+}
+.color_grey {
+  background: grey !important;
+}
 .button_large {
   aspect-ratio: initial;
   flex-grow: 1;
 }
 .button_large > button {
-  width: 95%;
+  width: 80%;
+  text-align: left;
+  padding-left: 12%;
+  border-radius: 5rem;
+  aspect-ratio: 2/1;
 }
 
 .home_button {
