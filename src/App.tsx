@@ -4,10 +4,15 @@ import { KeyPad } from "./components/Keypad";
 import { Navigation } from "./components/Navigation";
 import "./index.css";
 import { HomeButton } from "./components/HomeButton";
+export type History = {
+  operations: string;
+  result: string;
+};
 function App() {
   const [selectedOption, setSelectedOptions] = useState(0);
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [history, setHistory] = useState<History[]>([]);
 
   function handleNavigation(index: number) {
     setSelectedOptions(index);
@@ -42,6 +47,9 @@ function App() {
       case "=":
         try {
           setOutput(input !== "" ? eval(input) : output);
+          setHistory((history) => {
+            return [...history, { operations: input, result: output }];
+          });
         } catch (err) {}
         setInput("");
         break;
@@ -66,20 +74,6 @@ function App() {
 
         setInput(prefix_float + match_float_value);
 
-        /* const regex = /\d+$/g;
-        const no_match = /-\d\.\d+$/g;
-        let regex_value = input.match(regex);
-        if (regex_value !== null) {
-          const regex_string = regex_value[0];
-          let matched_value = input.slice(
-            input.length - regex_string.length,
-            input.length
-          );
-          let start_value = input.slice(0, input.length - matched_value.length);
-          matched_value = "0." + matched_value;
-          setInput(start_value + matched_value + " ");
-        } */
-
         break;
       default:
         setInput((input) => input + content);
@@ -88,10 +82,20 @@ function App() {
   function handleHomeButton(e: MouseEvent<HTMLButtonElement>) {
     setInput("");
     setOutput("");
+    setHistory([]);
   }
 
   function handleBackArrow() {
     setInput((input) => input.slice(0, -1));
+  }
+  function handlePopup(e: MouseEvent<HTMLDivElement>) {
+    /* assumed exist , cheched hiding the popup */
+    if (history.length < 0) return;
+    const desc_history = history[history.length - 1];
+    setInput(desc_history.operations);
+    setOutput(desc_history.result);
+    console.log(history);
+    setHistory(history.slice(0, -1));
   }
   return (
     <div className="container">
@@ -101,7 +105,13 @@ function App() {
           selectedIndex={selectedOption}
           onclick={handleNavigation}
         />
-        <Display input={input} output={output} onclick={handleBackArrow} />
+        <Display
+          input={input}
+          output={output}
+          handlePopup={handlePopup}
+          onclick={handleBackArrow}
+          history={history}
+        />
         <KeyPad onClick={handleKeypad} />
         <HomeButton onclick={handleHomeButton} />
       </div>
