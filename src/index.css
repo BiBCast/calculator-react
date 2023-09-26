@@ -22,8 +22,7 @@ body {
   background: rgb(30, 30, 30);
 }
 .container__cellphone {
-  --width: 40rem;
-
+  --width: 20rem;
   width: var(--width);
   aspect-ratio: 20 / 40;
   background: rgb(20, 20, 20);
