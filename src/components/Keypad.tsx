@@ -8,75 +8,73 @@ export function KeyPad({
     <>
       <div className="cellphone__keypad">
         <div className="keypad__button">
-          <button className="color_grey" onClick={(e) => onClick(e)}>
-            AC
-          </button>
+          <button className="color_grey" onClick={onClick}></button>
         </div>
         <div className="keypad__button">
-          <button className="color_grey" onClick={(e) => onClick(e)}>
+          <button className="color_grey" onClick={onClick}>
             +/-
           </button>
         </div>
         <div className="keypad__button ">
-          <button className="color_grey" onClick={(e) => onClick(e)}>
+          <button className="color_grey" onClick={onClick}>
             %
           </button>
         </div>
         <div className="keypad__button ">
-          <button className="color_yellow" onClick={(e) => onClick(e)}>
+          <button className="color_yellow" onClick={onClick}>
             /
           </button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>7</button>
+          <button onClick={onClick}>7</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>8</button>
+          <button onClick={onClick}>8</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>9</button>
+          <button onClick={onClick}>9</button>
         </div>
         <div className="keypad__button ">
-          <button className="color_yellow" onClick={(e) => onClick(e)}>
+          <button className="color_yellow" onClick={onClick}>
             *
           </button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>4</button>
+          <button onClick={onClick}>4</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>5</button>
+          <button onClick={onClick}>5</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>6</button>
+          <button onClick={onClick}>6</button>
         </div>
         <div className="keypad__button ">
-          <button className="color_yellow" onClick={(e) => onClick(e)}>
+          <button className="color_yellow" onClick={onClick}>
             -
           </button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>1</button>
+          <button onClick={onClick}>1</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>2</button>
+          <button onClick={onClick}>2</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>3</button>
+          <button onClick={onClick}>3</button>
         </div>
         <div className="keypad__button ">
-          <button className="color_yellow" onClick={(e) => onClick(e)}>
+          <button className="color_yellow" onClick={onClick}>
             +
           </button>
         </div>
         <div className="keypad__button button_large">
-          <button onClick={(e) => onClick(e)}>0</button>
+          <button onClick={onClick}>0</button>
         </div>
         <div className="keypad__button">
-          <button onClick={(e) => onClick(e)}>.</button>
+          <button onClick={onClick}>.</button>
         </div>
         <div className="keypad__button ">
-          <button className="color_yellow" onClick={(e) => onClick(e)}>
+          <button className="color_yellow" onClick={onClick}>
             =
           </button>
         </div>

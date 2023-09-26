@@ -4,6 +4,7 @@ import { KeyPad } from "./components/Keypad";
 import { Navigation } from "./components/Navigation";
 import "./index.css";
 import { HomeButton } from "./components/HomeButton";
+import { floatCase, percentCase } from "./keypadMethod";
 export type History = {
   operations: string;
   result: string;
@@ -17,6 +18,7 @@ function App() {
   function handleNavigation(index: number) {
     setSelectedOptions(index);
   }
+
   function handleKeypad(e: MouseEvent<HTMLButtonElement>) {
     const content = e.currentTarget.innerHTML;
     switch (content) {
@@ -33,47 +35,14 @@ function App() {
         setInput("");
         break;
       case "+/-":
-        const regex_inverse = /\d+[\.]?\d*$/g;
-        const regex_no_check = /[-+]\d+[\.]?\d*$/g;
-        if (!regex_inverse.test(input)) {
-          break;
-        }
-        let match_value = input.match(regex_inverse) as any[0];
-        if (regex_no_check.test(input)) {
-          match_value = input.match(regex_no_check) as any[0];
-          match_value = "-" + match_value.slice(1);
-        } else {
-          match_value = "-" + match_value;
-        }
-        let prefix = input.slice(
-          0,
-          input.length - match_value.length <= 0
-            ? 0
-            : input.length - match_value.length
-        );
-        setInput(prefix + match_value);
+        const result_float = floatCase(input);
+        if (result_float) setInput(result_float);
         break;
 
       case "%":
-        const regex_float = /\d*$/g;
-        const regex_float_no_check = /\.+\d*$/g;
-        if (!regex_float.test(input)) {
-          break;
-        }
-        if (regex_float_no_check.test(input)) {
-          break;
-        }
-        let match_float_value = input.match(regex_float) as any[0];
+        const result_percent = percentCase(input);
+        if (result_percent) setInput(result_percent);
 
-        match_float_value = "0." + match_float_value;
-
-        let prefix_float = input.slice(
-          0,
-          input.length >= match_float_value.length
-            ? input.length - match_float_value.length
-            : 0
-        );
-        setInput(prefix_float + match_float_value);
         break;
       default:
         setInput((input) => input + content);
@@ -89,7 +58,6 @@ function App() {
     setInput((input) => input.slice(0, -1));
   }
   function handlePopup() {
-    /* assumed exist , cheched hiding the popup */
     if (history.length < 0) return;
     const desc_history = history[history.length - 1];
     setInput(desc_history.operations);
