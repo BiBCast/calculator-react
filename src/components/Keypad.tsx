@@ -8,7 +8,9 @@ export function KeyPad({
     <>
       <div className="cellphone__keypad">
         <div className="keypad__button">
-          <button className="color_grey" onClick={onClick}></button>
+          <button className="color_grey" onClick={onClick}>
+            AC
+          </button>
         </div>
         <div className="keypad__button">
           <button className="color_grey" onClick={onClick}>
