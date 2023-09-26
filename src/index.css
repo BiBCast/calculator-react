@@ -131,6 +131,7 @@ body {
   align-items: center;
   height: 100%;
   padding-left: 0.5%;
+  padding-right: 4%;
   scale: 1.3;
 }
 .go_back_arrow svg {
@@ -143,10 +144,15 @@ body {
   stroke: var(--main-color);
 }
 .input__text {
-  color: var(--main-color);
+  width: 100%;
+  text-align: right;
+  overflow: scroll;
   /* color: var(--main-color);
   margin-bottom: 3%;
   font-size: xx-large; */
+}
+.input__text > span {
+  color: var(--main-color);
 }
 .cellphone__keypad {
   display: flex;

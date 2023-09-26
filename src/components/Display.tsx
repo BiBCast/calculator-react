@@ -34,7 +34,9 @@ export function Display({
           <div onClick={() => onclick()} className="go_back_arrow">
             <BackArrow />
           </div>
-          <span className="input__text">{input}</span>
+          <div className="input__text">
+            <span>{input}</span>
+          </div>
         </div>
       </div>
     </>
