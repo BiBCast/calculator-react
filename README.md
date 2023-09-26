@@ -4,8 +4,6 @@
 
 This is a simple calculator app built using React. It allows users to perform basic arithmetic operations, view a history of their calculations, and clear the input. The app is designed with a user-friendly interface for easy calculations.
 
-![Calculator App Screenshot](link_to_screenshot)
-
 ## Features
 
 - **Basic Arithmetic Operations:** You can perform addition, subtraction, multiplication, and division operations with ease.
@@ -23,13 +21,13 @@ To run this calculator app locally, follow these steps:
 1. Clone this repository to your local machine.
 
    ```bash
-   git clone https://github.com/yourusername/calculator-app.git
+   git clone https://github.com/BiBCast/calculator-react.git
    ```
 
 2. Navigate to the project directory.
 
    ```bash
-   cd calculator-app
+   cd calculator-react
    ```
 
 3. Install the required dependencies.
@@ -41,10 +39,10 @@ To run this calculator app locally, follow these steps:
 4. Start the development server.
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-5. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to use the calculator app.
+5. Open your web browser and go to [http://localhost:5173](http://localhost:5173) to use the calculator app.
 
 ## How to Use
 
@@ -64,6 +62,7 @@ To run this calculator app locally, follow these steps:
 
 - React
 - CSS
+- Typescript
 
 ## Feedback and Contributions
 
