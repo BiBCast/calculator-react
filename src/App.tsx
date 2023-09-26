@@ -22,28 +22,38 @@ function App() {
   function handleKeypad(e: MouseEvent<HTMLButtonElement>) {
     const content = e.currentTarget.innerHTML;
     switch (content) {
-      case "=":
+      case "=": {
+        let result: string;
+
         try {
-          setOutput(input !== "" ? eval(input) : output);
-          setHistory((history) => {
-            return [...history, { operations: input, result: output }];
-          });
-        } catch (err) {}
+          result = eval(input);
+        } catch (err) {
+          result = input;
+        }
+        setOutput(result);
+        setHistory((history) => {
+          return [...history, { operations: input, result: output }];
+        });
+
         setInput("");
         break;
+      }
+
       case "AC":
         setInput("");
         break;
-      case "+/-":
-        const result_float = floatCase(input);
-        if (result_float) setInput(result_float);
+      case "+/-": {
+        const resultFloat = floatCase(input);
+        if (resultFloat) setInput(resultFloat);
         break;
+      }
 
-      case "%":
-        const result_percent = percentCase(input);
-        if (result_percent) setInput(result_percent);
+      case "%": {
+        const resultPercent = percentCase(input);
+        if (resultPercent) setInput(resultPercent);
 
         break;
+      }
       default:
         setInput((input) => input + content);
     }
@@ -59,9 +69,9 @@ function App() {
   }
   function handlePopup() {
     if (history.length < 0) return;
-    const desc_history = history[history.length - 1];
-    setInput(desc_history.operations);
-    setOutput(desc_history.result);
+    const descHistory = history[history.length - 1];
+    setInput(descHistory.operations);
+    setOutput(descHistory.result);
     setHistory(history.slice(0, -1));
   }
   return (
