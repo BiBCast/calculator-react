@@ -70,7 +70,7 @@ If you encounter any issues with the calculator app or have suggestions for impr
 
 ## License
 
-This calculator app is open-source and available under the [MIT License](link_to_license).
+This calculator app is open-source 
 
 ---
 
